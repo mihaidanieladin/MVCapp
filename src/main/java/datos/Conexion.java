@@ -7,7 +7,7 @@ import javax.sql.DataSource;
 import org.apache.commons.dbcp2.BasicDataSource;
 
 public class Conexion {
-    private static final String JDBC_URL = "jdbc:mysql://localhost:3306/control-clientes?useSSL=false&useTimezone=true&serverTimezone=UTC&allowPublicKeyRetrieval=true";
+    private static final String JDBC_URL = "jdbc:mysql://localhost:3306/control_clientes?useSSL=false&useTimezone=true&serverTimezone=UTC";
     private static final String JDBC_USER = "root";
     private static final String JDBC_PASS = "admin";
     
@@ -20,10 +20,10 @@ public class Conexion {
         dataSource.setPassword(JDBC_PASS);
         dataSource.setInitialSize(50);
         
-        return (DataSource) dataSource;
+        return dataSource;
     }
     
-    public static Connection getConnection() throws SQLException{
+    public static Connection getConection() throws SQLException{
         return getDataSource().getConnection();
     }
     

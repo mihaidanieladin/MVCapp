@@ -28,7 +28,7 @@ public class ClienteDAO {
         List<Cliente> clientes = new ArrayList<Cliente>();
         
         try {
-            conn = Conexion.getConnection();
+            conn = Conexion.getConection();
             stmt = conn.prepareStatement(SQL_SELECT);
             rs = stmt.executeQuery();
             
@@ -60,7 +60,7 @@ public class ClienteDAO {
         ResultSet rs = null;
         
         try{
-            conn = Conexion.getConnection();
+            conn = Conexion.getConection();
             stmt = conn.prepareCall(SQL_SELECT_BY_ID);
             // Gets the client by id
             stmt.setInt(1, cliente.getId_cliente());
@@ -99,7 +99,7 @@ public class ClienteDAO {
         int rows = 0;
         
         try {
-            conn = Conexion.getConnection();
+            conn = Conexion.getConection();
             stmt = conn.prepareCall(SQL_INSERT);
             
             // Getting the user
@@ -111,7 +111,7 @@ public class ClienteDAO {
             
             rows = stmt.executeUpdate();
         } catch (SQLException ex) {
-            ex.printStackTrace();
+            ex.printStackTrace(System.out);
         } finally {
             Conexion.close(stmt);
             Conexion.close(conn);
@@ -125,7 +125,7 @@ public class ClienteDAO {
         int rows = 0;
         
         try {
-            conn = Conexion.getConnection();
+            conn = Conexion.getConection();
             stmt = conn.prepareCall(SQL_UPDATE);
             
             // Getting the user
@@ -138,7 +138,7 @@ public class ClienteDAO {
             
             rows = stmt.executeUpdate();
         } catch (SQLException ex) {
-            ex.printStackTrace();
+            ex.printStackTrace(System.out);
         } finally {
             Conexion.close(stmt);
             Conexion.close(conn);
@@ -152,7 +152,7 @@ public class ClienteDAO {
         int rows = 0;
         
         try {
-            conn = Conexion.getConnection();
+            conn = Conexion.getConection();
             stmt = conn.prepareCall(SQL_DELETE);
             
             // Getting the user
@@ -160,7 +160,7 @@ public class ClienteDAO {
             
             rows = stmt.executeUpdate();
         } catch (SQLException ex) {
-            ex.printStackTrace();
+            ex.printStackTrace(System.out);
         } finally {
             Conexion.close(stmt);
             Conexion.close(conn);
